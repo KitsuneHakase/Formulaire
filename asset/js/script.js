@@ -8,7 +8,6 @@ function validationNom () {
     console.log("Nom : " + resultatNomTest);
     
     if (resultatNomTest === false) {
-        // alert("Votre Nom n'est pas bon ! \nIl doit contenir une majuscule et uniquement des lettres.");
         let messageErreurNom = document.querySelector("#divNom");
         let spanErreurNom = document.createElement("span");
         spanErreurNom.textContent = "Votre réponse est invalide\nIl doit contenir une majuscule et uniquement des lettres.";
@@ -33,10 +32,9 @@ function validationPrenom () {
     console.log("Prenom : " + resultatPrenomTest);
 
     if (resultatPrenomTest === false) {
-        // alert("Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.");
         let messageErreurPrenom = document.querySelector("#divPrenom");
         let spanErreurPrenom = document.createElement("span");
-        spanErreurPrenom.textContent = "Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.";
+        spanErreurPrenom.textContent = "Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer si nécessaire.";
         spanErreurPrenom.setAttribute("class", "messagePrenom");
         
         if (!document.querySelector(".messagePrenom")) {
@@ -57,7 +55,6 @@ function validationAge () {
     console.log("Age : " + resultatAgeTest);
 
     if (resultatAgeTest === false) {
-        // alert("Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.");
         let messageErreurAge = document.querySelector("#divAge");
         let spanErreurAge = document.createElement("span");
         spanErreurAge.textContent = "Votre Âge n'est pas bon ! \nIl doit contenir uniquement des nombres de un à 3 chiffres.";
@@ -93,7 +90,6 @@ function validationEmail () {
 
 
     if (resultatEmailTest === false) {
-        // alert("Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.");
         let messageErreurEmail = document.querySelector("#divEmail");
         let spanErreurEmail = document.createElement("span");
         spanErreurEmail.textContent = "Votre Email n'est pas bon !";
@@ -111,35 +107,30 @@ function validationEmail () {
 
 };
 
-// function validationAdressePostal () {
-//     const adressePostal = document.querySelector('#codePostal').value;
-//     let adressePostalTest = /^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$/
-// ;
-//     let resultatCodePostalTest = codePostalTest.test(codePostal);
-//     console.log("Code postal : " + resultatCodePostalTest);
-//     if (resultatCodePostalTest === false) {
-//         alert("Votre Code postal n'est pas bon ! \nIl doit contenir uniquement 5 chiffres.");
-//     };
+function validationAdressePostal () {
+    const adressePostal = document.querySelector('#codePostal').value;
+    let adressePostalTest = /^(((?:0[1-9]|[1-8]\d|9[0-8])\d{3}),)$/;
+    let resultatAdressePostalTest = adressePostalTest.test(adressePostal);
+    console.log("Adresse postal : " + resultatAdressePostalTest);
 
-    // if (resultatEmailTest === false) {
-    //     // alert("Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.");
-    //     let messageErreurEmail = document.querySelector("#divEmail");
-    //     let spanErreurEmail = document.createElement("span");
-    //     spanErreurEmail.textContent = "Votre Âge n'est pas bon ! \nIl doit contenir uniquement des nombres de un à 3 chiffres.";
-    //     spanErreurEmail.setAttribute("class", "messageEmail");
+    if (resultatAdressePostalTest === false) {
+        let messageErreurAdressePostal = document.querySelector("#divAdresse");
+        let spanErreurAdressePostal = document.createElement("span");
+        spanErreurAdressePostal.textContent = "Votre Adresse postal n'est pas bon ! \nIl doit contenir un nombre une virgule et le nom de la rue,... .";
+        spanErreurAdressePostal.setAttribute("class", "messageAdressePostal");
         
-    //     if (!document.querySelector(".messageEmail")) {
-    //         messageErreurEmail.appendChild(spanErreurEmail);
-    //     }
-    // } else {
-    //     let spanErreurEmail = document.querySelector(".messageEmail");
-    //     if (spanErreurEmail) {
-    //         spanErreurEmail.remove();
-    //     }
-    // };
+        if (!document.querySelector(".messageAdressePostal")) {
+            messageErreurAdressePostal.appendChild(spanErreurAdressePostal);
+        }
+    } else {
+        let spanErreurAdressePostal = document.querySelector(".messageAdressePostal");
+        if (spanErreurAdressePostal) {
+            spanErreurAdressePostal.remove();
+        }
+    };
 
 
-// };
+};
 
 function validationCodePostal () {
     const codePostal = document.querySelector('#codePostal').value;
@@ -149,7 +140,6 @@ function validationCodePostal () {
 
 
     if (resultatCodePostalTest === false) {
-        // alert("Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.");
         let messageErreurCodePostal = document.querySelector("#divCodePostal");
         let spanErreurCodePostal = document.createElement("span");
         spanErreurCodePostal.textContent = "Votre Code postal n'est pas bon ! \nIl doit contenir uniquement 5 chiffres.";
@@ -166,6 +156,29 @@ function validationCodePostal () {
     };
 };
 
+function validationVille () {
+    const ville = document.querySelector('#ville').value;
+    let villeTest = new RegExp("[A-Z][A-Za-z\é\è\ê\-]+$");
+    let resultatVilleTest = villeTest.test(ville);
+    console.log("Ville : " + resultatVilleTest);
+
+    if (resultatVilleTest === false) {
+        let messageErreurVille = document.querySelector("#divVille");
+        let spanErreurVille = document.createElement("span");
+        spanErreurVille.textContent = "Votre Ville n'est pas bonne ! \nIl doit contenir une majuscule, des lettres et également un tirer si nécessaire.";
+        spanErreurVille.setAttribute("class", "messageVille");
+        
+        if (!document.querySelector(".messageVille")) {
+            messageErreurVille.appendChild(spanErreurVille);
+        }
+    } else {
+        let spanErreurVille = document.querySelector(".messageVille");
+        if (spanErreurVille) {
+            spanErreurVille.remove();
+        }
+    };
+};
+
 function validationPays () {
     const pays = document.querySelector('#pays').value;
     let paysTest = /^([A-Z]+[A-Za-z]\w{3,20})$/;
@@ -173,7 +186,6 @@ function validationPays () {
     console.log("Pays : " + resultatPaysTest);
 
     if (resultatPaysTest === false) {
-        // alert("Votre Prénom n'est pas bon ! \nIl doit contenir une majuscule, des lettres et également un tirer.");
         let messageErreurPays = document.querySelector("#divPays");
         let spanErreurPays = document.createElement("span");
         spanErreurPays.textContent = "Votre Pays n'est pas bon ! \nIl doit contenir uniquement des lettres.";
@@ -196,9 +208,23 @@ function validationSecuriteSocial () {
     let securiteSocialTest = /^([0-9]\d{13})+$/;
     let resultatSecuriteSocial = securiteSocialTest.test(securiteSocial);
     console.log("Numéro de sécurité social : " + resultatSecuriteSocial);
+
     if (resultatSecuriteSocial === false) {
-        alert("Votre Numéro de sécurité social n'est pas bon ! \nIl doit contenir uniquement 13 chiffres.");
+        let messageErreurSecuriteSocial = document.querySelector("#divSecuriteSocial");
+        let spanErreurSecuriteSocial = document.createElement("span");
+        spanErreurSecuriteSocial.textContent = "Votre Numéro de sécurité social n'est pas bon ! \nIl doit contenir uniquement 13 chiffres.";
+        spanErreurSecuriteSocial.setAttribute("class", "messageSecuriteSocial");
+        
+        if (!document.querySelector(".messageSecuriteSocial")) {
+            messageErreurSecuriteSocial.appendChild(spanErreurSecuriteSocial);
+        }
+    } else {
+        let spanErreurSecuriteSocial = document.querySelector(".messageSecuriteSocial");
+        if (spanErreurSecuriteSocial) {
+            spanErreurSecuriteSocial.remove();
+        }
     };
+
 };
 
 function validationPasseport () {
@@ -206,23 +232,36 @@ function validationPasseport () {
     let passeportTest = /^^[0-9]{2}[A-z]{2}[0-9]{5}$/;
     let resultatPasseport = passeportTest.test(passeport);
     console.log("Numéro du Passeport : " + resultatPasseport);
+
     if (resultatPasseport === false) {
-        alert("Votre Numéro de votre Passeport n'est pas bon ! \nIl doit contenir 2 chiffres, 2 lettres et 5 chiffres.");
+        let messageErreurPasseport = document.querySelector("#divPasseport");
+        let spanErreurPasseport = document.createElement("span");
+        spanErreurPasseport.textContent = "Votre Numéro de votre Passeport n'est pas bon ! \nIl doit contenir 2 chiffres, 2 lettres et 5 chiffres.";
+        spanErreurPasseport.setAttribute("class", "messagePasseport");
+        
+        if (!document.querySelector(".messagePasseport")) {
+            messageErreurPasseport.appendChild(spanErreurPasseport);
+        }
+    } else {
+        let spanErreurPasseport = document.querySelector(".messagePasseport");
+        if (spanErreurPasseport) {
+            spanErreurPasseport.remove();
+        }
     };
 };
 
 
 
-envoyer.addEventListener ("click", function (ev) {
+envoyer.addEventListener ("click", function (event) {
     event.preventDefault();
     validationNom();
     validationPrenom();
     validationAge();
     // validationGenre();
     validationEmail();
-    // validationAdressePostal();
+    validationAdressePostal();
     validationCodePostal();
-    //     validationVille();
+    validationVille();
     validationPays();
     validationSecuriteSocial();
     validationPasseport();
