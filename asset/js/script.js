@@ -109,7 +109,7 @@ function validationEmail () {
 
 function validationAdressePostal () {
     const adressePostal = document.querySelector('#codePostal').value;
-    let adressePostalTest = /^(((?:0[1-9]|[1-8]\d|9[0-8])\d{3}),)$/;
+    let adressePostalTest = /^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[\-\w]*)[\s,]+([-\w].+)$/;
     let resultatAdressePostalTest = adressePostalTest.test(adressePostal);
     console.log("Adresse postal : " + resultatAdressePostalTest);
 
