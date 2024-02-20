@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 19px;
+}
+
+#logo {
+    height: 150px;
+    position: absolute;
+    left: 150px;
+}
+
+a {
+    color: white;
+    position: relative;
+    column-gap: 10px;
+}
+
+nav {
+    position: relative;
+    right: 50px;
+    display: flex;
+    column-gap: 20px;
+}
+
+#navbar {
+    background-color: #0050a5;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.bandeHeader {
+    height: 75px;
+}
+
+#question {
+    position: relative;
+    left: 80%;
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50px;
+    align-items: center;
+
+}
+
+h1 {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    color: #0050a5;
+    font-size: 44px;
+}
+
+label, input, select {
+    width: 50%;
+}
+
+label {
+    font-weight: bold;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 10px;
+    align-items: center;
+    border: #0050a5 2px solid;
+    background-color: #f4f4f4;
+    row-gap: 20px;
+
+}
+
+#genre {
+    display: flex;
+    justify-content: center;
+    column-gap: 20%;
+}
+
+#genre div {
+    display: flex;
+}
+
+#submit {
+    width: 70px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: #0050a5 2px solid;
+    background-color: white;
+}
+
+#submit:hover {
+    color: white;
+    background-color: #0050a5;
+}
+
+.divInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.divInfo label, .divInfo input, .divInfo select {
+    width: 200px;
+}
+
+#divGenre {
+    width: 208px;
+}
+
+#divGenre div {
+    display: flex;
+    column-gap: 15px;
+}
