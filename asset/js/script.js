@@ -109,7 +109,7 @@ function validationEmail () {
 
 function validationAdressePostal () {
     const adressePostal = document.querySelector('#codePostal').value;
-    let adressePostalTest = /^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[\-\w]*)[\s,]+([-\w].+)$/;
+    let adressePostalTest = /^[a-zA-Z0-9\s\,.'-]{3,}$/;
     let resultatAdressePostalTest = adressePostalTest.test(adressePostal);
     console.log("Adresse postal : " + resultatAdressePostalTest);
 
@@ -267,6 +267,7 @@ envoyer.addEventListener ("click", function (event) {
     validationPasseport();
     //     validationPasseportDelivrance();
     //     validationPasseportValidite();
+    envoyer.send();
 });
 
 
